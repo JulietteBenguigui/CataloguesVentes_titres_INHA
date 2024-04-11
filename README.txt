@@ -1,0 +1,2 @@
+Ce projet est un essai réalisé dans le cadre de la réalisation de notices pour les catalogues de ventes de l'INHA. 
+Le but est de créer une petite interface graphique qui soit capable, quand on lui donne un ou plusieurs titre de catalogues de ventes, de les agréger ensemble (s'il s'agit d'un recueil factice) et de générer une version abrégée (destinée à un affichage plus clair sur la page des résultats de rehcerche sur la bibliothèque numérique)
