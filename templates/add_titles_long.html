@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Générateur de titres longs</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        .hidden-form {
+            display: none;
+        }
+    </style>
+</head>
+
+<img src="{{ url_for('static', filename='logo_inha.png') }}" alt="Logo INHA" class="centered-image">
+
+
+<body>
+    <h1>Générateur de titres longs</h2>
+    <h2>Ajouter tous les titres en entier</h2>
+
+    <form action="/results_long" method="post">
+
+        <label for="title_long1">Titre 1:</label>
+        <textarea name="title_long1" id="title_long1" rows="4" required></textarea>
+        <br>
+
+        <label for="title_long2">Titre 2:</label>
+        <textarea name="title_long2" id="title_long2" rows="4" required></textarea>
+        <br>
+
+        <div id="additionalForms" class="hidden-form"></div>
+
+        <input type="submit" value="Submit">
+        <button type="button" onclick="showNextForm()">+</button>
+        <button type="button" onclick="hideLastForm()">-</button>
+
+    </form>
+
+    <script>
+        var formCounter = 2;
+
+        function showNextForm() {
+            formCounter++;
+            var formContainer = document.getElementById("additionalForms");
+            var newForm = document.createElement("div");
+            newForm.innerHTML = `
+                <label for="title_long${formCounter}">Titre ${formCounter}:</label>
+                <textarea name="title_long${formCounter}" id="title_long${formCounter}" rows="4" required></textarea>
+                <br>
+            `;
+            formContainer.appendChild(newForm);
+            formContainer.classList.remove("hidden-form");
+        }
+
+        function hideLastForm() {
+            var formContainer = document.getElementById("additionalForms");
+            if (formCounter > 2) {
+                formCounter--;
+                formContainer.removeChild(formContainer.lastChild);
+            }
+
+            if (formCounter === 2) {
+                formContainer.classList.add("hidden-form");
+            }
+        }
+    </script>
+</body>
+</html>
+
+
+
+
