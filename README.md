@@ -28,6 +28,7 @@ Les catalogues de ventes ont souvent des titres longs et descriptifs, et encore 
 *Note : cette interface n’est pas spécialement utile en elle-même mais l’idée était de la combiner avec la génération automatique de résumés. On aurait alors eu 2 résultats : les titres longs agrégés (si plusieurs) et les versions résumées à afficher dans la page de résultats*
 
 **Arborescence des fichiers pour utiliser la petite interface web**
+
   <img src="static/arborescence.png" alt="Schéma de l'arborescence des fichiers pour afficher l'interface graphique dans son navigateur." width="50%">
 
 # Résumés automatiques des titres
@@ -42,11 +43,12 @@ Les catalogues de ventes ont souvent des titres longs et descriptifs, et encore 
   - 60 millions de paramètres
   - Mobilisable grâce à la plateforme Hugging Face, qui héberge des modèles de langues et des bases de données
 - Nécessité d'un GPU pour effectuer cet entraînement : utilisation de Google Colab et d'un GPU distant.
+
 **Les étapes**
-1. Préparer les données (nettoyage, mise en forme)
-2. Fine-tuning : modifier les paramètres du modèle pour l’adapter au projet
-3. Entraîner : lancer l’opération sur Python (dure une vingtaine de minutes)
-4. Tester avec de nouvelles données
+  1. Préparer les données (nettoyage, mise en forme)
+  2. Fine-tuning : modifier les paramètres du modèle pour l’adapter au projet
+  3. Entraîner : lancer l’opération sur Python (dure une vingtaine de minutes)
+  4. Tester avec de nouvelles données
 
 ## Les résultats 
 **Ce qui a été bien intégré par le modèle**
