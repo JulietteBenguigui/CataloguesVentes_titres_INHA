@@ -22,3 +22,5 @@ Les catalogues de ventes ont souvent des titres longs et descriptifs, et encore 
 - Sur ce repository, télécharger en local dans un nouveau dossier le fichier "app.py" et les dossiers "templates" et "static"
 - Ouvrir ce nouveau dossier avec un éditeur de code comme VS Code, ouvrir et exécuter le script "app.py"
 - Le terminal renvoie une adresse : la copier-coller dans un navigateur et
+  ### Arborescence des fichiers pour utiliser la petite interface web
+![Screenshot of a comment on a GitHub issue showing an image, added in the Markdown, of an Octocat smiling and raising a tentacle.](static/arborescence.png)
