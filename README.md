@@ -22,12 +22,44 @@ Les catalogues de ventes ont souvent des titres longs et descriptifs, et encore 
 - Sur ce repository, télécharger en local dans un nouveau dossier le fichier "app.py" et les dossiers "templates" et "static"
 - Ouvrir ce nouveau dossier avec un éditeur de code comme VS Code, ouvrir et exécuter le script "app.py"
 - Le terminal renvoie une adresse : la copier-coller dans un navigateur et
-### Arborescence des fichiers pour utiliser la petite interface web
-<div style="text-align: center;">
+**Arborescence des fichiers pour utiliser la petite interface web**
   <img src="static/arborescence.png" alt="Schéma de l'arborescence des fichiers pour afficher l'interface graphique dans son navigateur." width="50%">
-</div>
 
 # Résumés automatiques des titres
 ## Comment ça marche ?
+- Les titres sont résumés selon des modalités qui ne sont pas transmissibles telles quelles à un programme informatique : elles sont trop fines et nécessitent une compréhension humaine (notamment pour retrouver le nom du collectionneur, couper à des moments pertinents, extraire la date).
+- L’intelligence artificielle, et plus précisément l’entraînement et le fine-tuning d’un modèle de langue, permet « d’apprendre » à la machine à faire une tâche en lui donnant un grand nombre d’exemples.
+- Dans notre cas, les exemples sont des titres « longs » et leurs équivalents résumés : nous en avons plus de 17 000 grâce au travail déjà réalisé pour les catalogues de vente sur la bibliothèque numérique
+- Le modèle de langue choisi : Google-T5/T5-small
+  - Spécialisé dans les tâches de traitement automatique de la langue (NLP en anglais)
+  - Langues : anglais, français, roumain et allemand
+  - 60 millions de paramètres
+  - Mobilisable grâce à la plateforme Hugging Face, qui héberge des modèles de langues et des bases de données
+**Les étapes**
+1. Préparer les données (nettoyage, mise en forme)
+2. Fine-tuning : modifier les paramètres du modèle pour l’adapter au projet
+3. Entraîner : lancer l’opération sur Python (dure une vingtaine de minutes)
+4. Tester avec de nouvelles données
+
 ## Les résultats 
+**Ce qui a été bien intégré par le modèle**
+- Un découpage cohérent (ne coupe pas en plein milieu des phrases) 
+- Le format de la date « : \[vente du N° jour mois années] » et l’extraction dans le titre
+- La traduction des jours et mois quand c’est nécessaire pour formater la date
+
+**Ce qui a été moins bien intégré**  
+- Le nom du collectionneur 
+- Le fait de ne pas inventer de date s’il n’y en a pas dans le titre ?
+- Les titres longs
+
+**Exemples de titres générés automatiquement par le modèle**
+
+| Titres longs | Titres courts manuels | Titres générés automatiquement |
+|--------------|-----------------------|---------------------------------|
+| Catalogus numismatum nummorumque tum veterum, tum recentiorum, omnis generis et moduli, quos non minore sumptu, quàm curâ & delectu, collegit. regius princeps ac dux Lotharingiae Carolus Alexander, Austriaci Belgii supremus quondam gubernator. Publica eorumdem auctio & venditio siet Bruxellis decimâ-septimâ septembris & sequentibus diebus anno 1781, pecuniâ cambiali, in Domo Regiâ, Belgicè dictâ Broot-huys, medio decimae ante meridiem, & tertiâ post meridiem | Catalogus numismatum nummorumque \[...] : \[vente du 17 septembre 1781] | Catalogus numismatum nummorumque tum veterumque \[...] : \[vente du 1781] |
+| Catalogue des vases, colonnes, tables de marbres rares, figures de bronze, porcelaines de choix, laques, meubles précieux, pendules, lustres, bras & lanternes de bronze doré d'or mat : bijoux & autres effets importants qui composent le cabinet de feu M. le duc d'Aumont. Par P. F. Julliot fils, & A. J. Paillet. La vente se fera le 12 décembre 1782, à quatre heures précises de relevée, & jours suivants, en son hôtel, place Louis XV... | Catalogue des effets précieux qui composent le cabinet de feu M. le duc d'Aumont \[...] : \[vente du 12 au 21 décembre 1782] | Catalogue des vases, colonnes, tables de marbres rares, figures de bronze, porcelaines de choix \[...] : \[vente du 12 décembre 1782] |
+| A catalogue of all that valuable and magnificent collection of Italian, French, Flemish, and Dutch pictures, selected with singular taste and admitted judgement, the property of Mr. Bryan, and comprising the original works and great performances of the following masters : Rubens, Vandyke, Titian, Salvator Rosa, Claude Loraine, Berghem, Guido, Nich. Poussin, W. Vandevelde, Philip Wouvermans, Velasquez, Paul Potter... Wich will be sold by auction by Peter Coxe, Burrell, and Foster, at Mr. Bryan's celebrated gallery in Pall Mall, where they are displayed, on Thursday, may 17, 1798, and two following days, at twelve o'clock | Catalogue of all that valuable and magnificent collection [...] the property of Mr. Bryan : \[vente du 17 mai 1798] | Catalogue of all that valuable and magnificent collection of Italian, French, Flemish, and Dutch pictures, selected with singular taste and admitted judgement \[...] : \[vente du 17 mai 1798] |
+| Catalogue raisonné d'un choix précieux de dessins, et d'une nombreuse et riche collection d'estampes anciennes et modernes, en feuilles, en recueils et en oeuvres, livres a figures, sciences et arts, tableaux et autres objets curieux, qui composent le cabinet de feu Pierre-François Basan père, graveur & ancien marchand d'estampes. Par L. F. Regnault, peintre & graveur | Catalogue raisonné d'un choix précieux de dessins [...] qui composent le cabinet de feu Pierre-François Basan : \[vente du 1er au 19 décembre 1798] | Catalogue raisonné d'un choix précieux de dessins \[...] : \[vente du 1er avril 1939] |
+| Catalogue du cabinet de feu Mr. Henri Tersmitten, en son vivant bourgemaitre & conseiller de la ville d'Amsterdam, & commissaire pour les postes de LL. NN. & GG. puissances les Etats de Hollande & de Westfriese, &c. &c. &c. renfermant une collection très-considérable de desseins & d'estampes des plus grands maitres, tant italiens que françois, flamans & hollandois. Avec un appendix de diverses curiosités. Cette vente se fera le lundi 23. septembre 1754. & jours suivants, chez Jean Volbragt, à la Couronne impériale dans la rue nommée le Kalverstraat | Catalogue du cabinet de feu Mr. Henri Tersmitten \[...] : \[vente du 23 septembre 1754] | Catalogue du cabinet de feu Mr. Henri Tersmitten, en son vivant bourgemaitre et conseiller de la ville d'Amsterdam \[...] : \[vente du 23 septembre 1754] |
+
 ## Comment le réutiliser ?
