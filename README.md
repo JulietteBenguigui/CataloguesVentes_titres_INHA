@@ -1,6 +1,7 @@
 # INHA in short : introduction
 - Ce projet est un essai réalisé au cours du printemps 2024, en tant que monitrice étudiante au service de l'informatique documentaire (SID) de l'INHA. Plus particulièrement, il a été effectué dans le cadre de la rédaction de notices pour les catalogues de ventes numrisés à mettre en ligne sur la bibliothèque numérique de l'INHA.
 - Le modèle entraîné est disponible sur Hugging Face à cette adresse : https://huggingface.co/JulietteBenguigui142/INHA_in_short
+- Projet sous licence MIT et réutilisable librement. Pour plus d'information consulter les termes de la licence. 
 # Problématiques et objectifs 
 Les catalogues de ventes ont souvent des titres longs et descriptifs, et encore plus quand il s’agit de recueils factices. Pour les afficher de manière plus lisible sur la page des résultats de recherche sur la bibliothèque numérique, ils sont raccourcis.
 ## Méthode : 
