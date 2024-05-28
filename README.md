@@ -1,5 +1,6 @@
 # INHA in short : introduction
-Ce projet est un essai réalisé au cours du printemps 2024, en tant que monitrice étudiante au service de l'informatique documentaire (SID) de l'INHA. Plus particulièrement, il a été effectué dans le cadre de la rédaction de notices pour les catalogues de ventes numrisés à mettre en ligne sur la bibliothèque numérique de l'INHA. 
+- Ce projet est un essai réalisé au cours du printemps 2024, en tant que monitrice étudiante au service de l'informatique documentaire (SID) de l'INHA. Plus particulièrement, il a été effectué dans le cadre de la rédaction de notices pour les catalogues de ventes numrisés à mettre en ligne sur la bibliothèque numérique de l'INHA.
+- Le modèle entraîné est disponible sur Hugging Face à cette adresse : https://huggingface.co/JulietteBenguigui142/INHA_in_short
 # Problématiques et objectifs 
 Les catalogues de ventes ont souvent des titres longs et descriptifs, et encore plus quand il s’agit de recueils factices. Pour les afficher de manière plus lisible sur la page des résultats de recherche sur la bibliothèque numérique, ils sont raccourcis.
 ## Méthode : 
@@ -23,7 +24,9 @@ Les catalogues de ventes ont souvent des titres longs et descriptifs, et encore 
 - Ouvrir ce nouveau dossier avec un éditeur de code comme VS Code, ouvrir et exécuter le script "app.py"
 - Le terminal renvoie une adresse : la copier-coller dans un navigateur et ajouter "add_titles_long" à l'adresse
 - On peut maintenant entrer plusieur titres et les agréger ensemble
+
 *Note : cette interface n’est pas spécialement utile en elle-même mais l’idée était de la combiner avec la génération automatique de résumés. On aurait alors eu 2 résultats : les titres longs agrégés (si plusieurs) et les versions résumées à afficher dans la page de résultats*
+
 **Arborescence des fichiers pour utiliser la petite interface web**
   <img src="static/arborescence.png" alt="Schéma de l'arborescence des fichiers pour afficher l'interface graphique dans son navigateur." width="50%">
 
