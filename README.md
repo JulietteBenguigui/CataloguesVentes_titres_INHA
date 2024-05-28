@@ -13,3 +13,12 @@ Les catalogues de ventes ont souvent des titres longs et descriptifs, et encore 
 ## Idées 
 - Expérimenter une automatisation à la fois du processus d’agrégation et de titres résumés
 - Créer une petite interface graphique qui soit capable, quand on lui donne un ou plusieurs titre de catalogues de ventes, de les agréger ensemble (s'il s'agit d'un recueil factice) et de générer une version abrégée (destinée à un affichage plus clair sur la page des résultats de recherche sur la bibliothèque numérique)
+# Agrégation automatique des titres et interface graphique
+## Comment ça marche ?
+- Python pour effectuer l’opération d’agrégation. Concrètement, ici, c’est ce langage de programmation qui, une fois les titres soumis séparément, les récupère et les agrège en les séparant par le « \[suivi de] »
+- HTML pour l’affichage web
+- CSS pour « habiller » les pages web
+## Comment le réutiliser ?
+- Sur ce repository, télécharger en local dans un nouveau dossier le fichier "app.py" et les dossiers "templates" et "static"
+- Ouvrir ce nouveau dossier avec un éditeur de code comme VS Code, ouvrir et exécuter le script "app.py"
+- Le terminal renvoie une adresse : la copier-coller dans un navigateur et
