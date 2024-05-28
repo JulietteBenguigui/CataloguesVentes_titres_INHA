@@ -70,13 +70,14 @@ Les catalogues de ventes ont souvent des titres longs et descriptifs, et encore 
 - Aller sur le Jupyter Notebook "summary_inha.ipynb" et cliquer sur "Ouvrir dans Collab"
 - Se rendre tout en bas du Notebook et exécuter la cellule "text = input()"
 - Rentrer son titre long, cliquer sur Entrer
-- Exécuter la cellule juste en dessous : le titre court va être généré
+- Exécuter la cellule juste en dessous : le titre court va être généré ! 
 # Conclusion
 **Succès** 
 - La création d’une petite interface graphique et l’interaction de contenus html, css et scripts Pythons pour l’agrégation des titres entre eux (pour les recueils factices)
 - L’entraînement / le fine-tuning d’un modèle d’intelligence artificielle dédié à la génération de résumés
 - Un début de « compréhension » du modèle 
 - Utilisation de Github et HuggingFace, deux interfaces qui permettent de gérer, stocker et utiliser des projets informatiques et IA
+
 **Échecs / voix d’amélioration**
 - Le déploiement du modèle entraîné au-delà du script python pour une utilisation généralisée : dû notamment à l'impossibilité d'entraîner le modèle localement sans GPU
 - Des résultats pas assez satisfaisants pour être exploitables dans la bibliothèque numérique 
