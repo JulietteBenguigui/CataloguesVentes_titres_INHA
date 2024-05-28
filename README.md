@@ -23,9 +23,9 @@ Les catalogues de ventes ont souvent des titres longs et descriptifs, et encore 
 - Ouvrir ce nouveau dossier avec un éditeur de code comme VS Code, ouvrir et exécuter le script "app.py"
 - Le terminal renvoie une adresse : la copier-coller dans un navigateur et
 ### Arborescence des fichiers pour utiliser la petite interface web
-![Schéma de l'arborescence des fichiers pour afficher l'interface graphique dans son navigateur.](static/arborescence.png)
-
-<img src="static/arborescence.png" alt="Schéma de l'arborescence des fichiers pour afficher l'interface graphique dans son navigateur." width="50%">
+<div style="text-align: center;">
+  <img src="static/arborescence.png" alt="Schéma de l'arborescence des fichiers pour afficher l'interface graphique dans son navigateur." width="50%">
+</div>
 
 # Résumés automatiques des titres
 ## Comment ça marche ?
