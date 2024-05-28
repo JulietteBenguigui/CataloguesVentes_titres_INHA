@@ -21,7 +21,9 @@ Les catalogues de ventes ont souvent des titres longs et descriptifs, et encore 
 ## Comment le réutiliser ?
 - Sur ce repository, télécharger en local dans un nouveau dossier le fichier "app.py" et les dossiers "templates" et "static"
 - Ouvrir ce nouveau dossier avec un éditeur de code comme VS Code, ouvrir et exécuter le script "app.py"
-- Le terminal renvoie une adresse : la copier-coller dans un navigateur et
+- Le terminal renvoie une adresse : la copier-coller dans un navigateur et ajouter "add_titles_long" à l'adresse
+- On peut maintenant entrer plusieur titres et les agréger ensemble
+*Note : cette interface n’est pas spécialement utile en elle-même mais l’idée était de la combiner avec la génération automatique de résumés. On aurait alors eu 2 résultats : les titres longs agrégés (si plusieurs) et les versions résumées à afficher dans la page de résultats*
 **Arborescence des fichiers pour utiliser la petite interface web**
   <img src="static/arborescence.png" alt="Schéma de l'arborescence des fichiers pour afficher l'interface graphique dans son navigateur." width="50%">
 
@@ -30,11 +32,13 @@ Les catalogues de ventes ont souvent des titres longs et descriptifs, et encore 
 - Les titres sont résumés selon des modalités qui ne sont pas transmissibles telles quelles à un programme informatique : elles sont trop fines et nécessitent une compréhension humaine (notamment pour retrouver le nom du collectionneur, couper à des moments pertinents, extraire la date).
 - L’intelligence artificielle, et plus précisément l’entraînement et le fine-tuning d’un modèle de langue, permet « d’apprendre » à la machine à faire une tâche en lui donnant un grand nombre d’exemples.
 - Dans notre cas, les exemples sont des titres « longs » et leurs équivalents résumés : nous en avons plus de 17 000 grâce au travail déjà réalisé pour les catalogues de vente sur la bibliothèque numérique
+- Suivi d'un tuto de résumés automatique sur Hugging Face disponible ici : https://huggingface.co/docs/transformers/tasks/summarization
 - Le modèle de langue choisi : Google-T5/T5-small
   - Spécialisé dans les tâches de traitement automatique de la langue (NLP en anglais)
   - Langues : anglais, français, roumain et allemand
   - 60 millions de paramètres
   - Mobilisable grâce à la plateforme Hugging Face, qui héberge des modèles de langues et des bases de données
+- Nécessité d'un GPU pour effectuer cet entraînement : utilisation de Google Colab et d'un GPU distant.
 **Les étapes**
 1. Préparer les données (nettoyage, mise en forme)
 2. Fine-tuning : modifier les paramètres du modèle pour l’adapter au projet
@@ -63,3 +67,18 @@ Les catalogues de ventes ont souvent des titres longs et descriptifs, et encore 
 | Catalogue du cabinet de feu Mr. Henri Tersmitten, en son vivant bourgemaitre & conseiller de la ville d'Amsterdam, & commissaire pour les postes de LL. NN. & GG. puissances les Etats de Hollande & de Westfriese, &c. &c. &c. renfermant une collection très-considérable de desseins & d'estampes des plus grands maitres, tant italiens que françois, flamans & hollandois. Avec un appendix de diverses curiosités. Cette vente se fera le lundi 23. septembre 1754. & jours suivants, chez Jean Volbragt, à la Couronne impériale dans la rue nommée le Kalverstraat | Catalogue du cabinet de feu Mr. Henri Tersmitten \[...] : \[vente du 23 septembre 1754] | Catalogue du cabinet de feu Mr. Henri Tersmitten, en son vivant bourgemaitre et conseiller de la ville d'Amsterdam \[...] : \[vente du 23 septembre 1754] |
 
 ## Comment le réutiliser ?
+- Aller sur le Jupyter Notebook "summary_inha.ipynb" et cliquer sur "Ouvrir dans Collab"
+- Se rendre tout en bas du Notebook et exécuter la cellule "text = input()"
+- Rentrer son titre long, cliquer sur Entrer
+- Exécuter la cellule juste en dessous : le titre court va être généré
+# Conclusion
+**Succès** 
+- La création d’une petite interface graphique et l’interaction de contenus html, css et scripts Pythons pour l’agrégation des titres entre eux (pour les recueils factices)
+- L’entraînement / le fine-tuning d’un modèle d’intelligence artificielle dédié à la génération de résumés
+- Un début de « compréhension » du modèle 
+- Utilisation de Github et HuggingFace, deux interfaces qui permettent de gérer, stocker et utiliser des projets informatiques et IA
+**Échecs / voix d’amélioration**
+- Le déploiement du modèle entraîné au-delà du script python pour une utilisation généralisée : dû notamment à l'impossibilité d'entraîner le modèle localement sans GPU
+- Des résultats pas assez satisfaisants pour être exploitables dans la bibliothèque numérique 
+- Correspond à une version 1, nécessite encore du travail, à la fois sur les données d’entraînement et sur les paramètres du modèle
+
