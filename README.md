@@ -84,7 +84,7 @@ Les catalogues de ventes ont souvent des titres longs et descriptifs, et encore 
 - Un début de « compréhension » du modèle 
 - Utilisation de Github et HuggingFace, deux interfaces qui permettent de gérer, stocker et utiliser des projets informatiques et IA
 
-**Échecs / voix d’amélioration**
+**Échecs / voies d’amélioration**
 - Le déploiement du modèle entraîné au-delà du script python pour une utilisation généralisée : dû notamment à l'impossibilité d'entraîner le modèle localement sans GPU
 - Des résultats pas assez satisfaisants pour être exploitables dans la bibliothèque numérique 
 - Correspond à une version 1, nécessite encore du travail, à la fois sur les données d’entraînement et sur les paramètres du modèle
